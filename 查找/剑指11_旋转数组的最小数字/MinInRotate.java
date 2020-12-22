@@ -15,7 +15,8 @@ public class MinInRotate {
 //        int[] array={3,4,5,6,1,2};
 //        int[] array={1};
 //        int[] array={3,4,4,5,5,5,1,1,2,2,3};
-        int[] array = {1, 2, 3, 4, 5};
+//        int[] array = {1, 2, 3, 4, 5};
+        int[] array = {1, 0, 1, 1, 1};
         int res = minInRotate(array);
         System.out.println(res);
     }
@@ -29,6 +30,12 @@ public class MinInRotate {
         int hi = array.length - 1;
         int mid = 0;
         int res = array[0];
+
+        //判断数组是否旋转
+        if (array[lo] < array[hi]) {
+            return res;
+        }
+
         while (lo < hi) {
             mid = lo + ((hi - lo) >> 1);
             if (array[mid] >= array[lo]) {
